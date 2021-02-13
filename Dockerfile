@@ -16,8 +16,8 @@ RUN apt-get -y update && \
     apt-get clean && \
     rm -rf /var/cache/apt/lists
 
-RUN usermod -u $HOST_UID jenkins && \
-    groupmod -g $HOST_GID docker && \
-    usermod -aG docker jenkins
+RUN usermod -u $HOST_UID jenkins
+RUN groupmod -g $HOST_GID docker
+RUN usermod -aG docker jenkins
 
 USER jenkins
